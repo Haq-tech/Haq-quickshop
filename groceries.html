@@ -1,0 +1,118 @@
+<section id="groceries" class="category-section">
+  <h2 class="category-title">🛒 Groceries</h2>
+  <div class="products-grid">
+
+    <!-- Product Card -->
+    <div class="product-card">
+      <img src="images/rice.jpg" alt="Rice 50kg" />
+      <h3>Royal Stallion Rice 50kg</h3>
+      <p class="price">₦42,000</p>
+      <div class="rating">⭐⭐⭐⭐</div>
+      <div class="actions">
+        <button onclick="addToCart('Royal Stallion Rice 50kg', 42000)">Add to Cart</button>
+        <button onclick="buyNow('Royal Stallion Rice 50kg', 42000)">Buy Now</button>
+      </div>
+    </div>
+
+    <!-- Product Card -->
+    <div class="product-card">
+      <img src="images/indomie.jpg" alt="Indomie Noodles" />
+      <h3>Indomie Noodles (1 Carton)</h3>
+      <p class="price">₦7,200</p>
+      <div class="rating">⭐⭐⭐⭐⭐</div>
+      <div class="actions">
+        <button onclick="addToCart('Indomie Noodles (1 Carton)', 7200)">Add to Cart</button>
+        <button onclick="buyNow('Indomie Noodles (1 Carton)', 7200)">Buy Now</button>
+      </div>
+    </div>
+
+    <!-- Product Card -->
+    <div class="product-card">
+      <img src="images/oil.jpg" alt="Kings Vegetable Oil" />
+      <h3>Kings Vegetable Oil 5L</h3>
+      <p class="price">₦6,000</p>
+      <div class="rating">⭐⭐⭐⭐</div>
+      <div class="actions">
+        <button onclick="addToCart('Kings Vegetable Oil 5L', 6000)">Add to Cart</button>
+        <button onclick="buyNow('Kings Vegetable Oil 5L', 6000)">Buy Now</button>
+      </div>
+    </div>
+
+    <!-- Product Card -->
+    <div class="product-card">
+      <img src="images/milk.jpg" alt="Peak Milk" />
+      <h3>Peak Milk Powder (800g)</h3>
+      <p class="price">₦3,800</p>
+      <div class="rating">⭐⭐⭐</div>
+      <div class="actions">
+        <button onclick="addToCart('Peak Milk Powder (800g)', 3800)">Add to Cart</button>
+        <button onclick="buyNow('Peak Milk Powder (800g)', 3800)">Buy Now</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .category-section {
+    padding: 30px 20px;
+    background-color: #f9f9f9;
+  }
+  .category-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #222;
+  }
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 20px;
+  }
+  .product-card {
+    background: white;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    text-align: center;
+  }
+  .product-card img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  .price {
+    font-weight: bold;
+    color: #0a7d00;
+  }
+  .rating {
+    margin: 5px 0;
+  }
+  .actions button {
+    margin: 5px;
+    padding: 6px 10px;
+    border: none;
+    background: #0077cc;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .actions button:hover {
+    background: #005fa3;
+  }
+</style>
+
+<script>
+  function addToCart(product, price) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart.push({ product, price });
+    localStorage.setItem('cart', JSON.stringify(cart));
+    alert(product + " added to cart!");
+  }
+
+  function buyNow(product, price) {
+    alert("Proceeding to buy: " + product + " for ₦" + price.toLocaleString());
+    // Further logic can go here (redirect, checkout etc.)
+  }
+</script>
