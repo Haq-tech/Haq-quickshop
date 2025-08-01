@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Electronics - QuickShop Mega</title>
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#007bff" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: #f4f4f4;
+    }
+
+    .category-section {
+      max-width: 960px;
+      margin: auto;
+    }
+
+    .category-title {
+      font-size: 26px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .product-card {
+      background: #fff;
+      padding: 15px;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .product-card img {
+      max-width: 100%;
+      border-radius: 8px;
+      height: 150px;
+      object-fit: cover;
+    }
+
+    .price {
+      color: green;
+      font-weight: bold;
+      margin: 8px 0;
+    }
+
+    .rating {
+      color: orange;
+    }
+
+    .actions button {
+      margin: 5px;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 6px;
+      background: #007bff;
+      color: white;
+      cursor: pointer;
+    }
+
+    .actions button:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <section id="electronics" class="category-section">
+    <h2 class="category-title">⚡ Electronics</h2>
+    <div class="products-grid">
+
+      <div class="product-card">
+        <img src="images/phone.jpg" alt="Smartphone" />
+        <h3>Infinix Hot 40 Pro</h3>
+        <p class="price">₦110,000</p>
+        <div class="rating">⭐⭐⭐⭐☆</div>
+        <div class="actions">
+          <button onclick="addToCart('Infinix Hot 40 Pro', 110000)">Add to Cart</button>
+          <button onclick="buyNow('Infinix Hot 40 Pro', 110000)">Buy Now</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="images/laptop.jpg" alt="Laptop" />
+        <h3>HP Pavilion x360</h3>
+        <p class="price">₦320,000</p>
+        <div class="rating">⭐⭐⭐⭐⭐</div>
+        <div class="actions">
+          <button onclick="addToCart('HP Pavilion x360', 320000)">Add to Cart</button>
+          <button onclick="buyNow('HP Pavilion x360', 320000)">Buy Now</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="images/earbuds.jpg" alt="Earbuds" />
+        <h3>Oraimo FreePods 3</h3>
+        <p class="price">₦15,000</p>
+        <div class="rating">⭐⭐⭐⭐</div>
+        <div class="actions">
+          <button onclick="addToCart('Oraimo FreePods 3', 15000)">Add to Cart</button>
+          <button onclick="buyNow('Oraimo FreePods 3', 15000)">Buy Now</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="images/tv.jpg" alt="TV" />
+        <h3>Samsung 43" Smart TV</h3>
+        <p class="price">₦205,000</p>
+        <div class="rating">⭐⭐⭐⭐⭐</div>
+        <div class="actions">
+          <button onclick="addToCart('Samsung 43 Smart TV', 205000)">Add to Cart</button>
+          <button onclick="buyNow('Samsung 43 Smart TV', 205000)">Buy Now</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="images/speaker.jpg" alt="Bluetooth Speaker" />
+        <h3>JBL Flip 6 Speaker</h3>
+        <p class="price">₦52,000</p>
+        <div class="rating">⭐⭐⭐⭐⭐</div>
+        <div class="actions">
+          <button onclick="addToCart('JBL Flip 6 Speaker', 52000)">Add to Cart</button>
+          <button onclick="buyNow('JBL Flip 6 Speaker', 52000)">Buy Now</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="images/camera.jpg" alt="Camera" />
+        <h3>Canon EOS 4000D</h3>
+        <p class="price">₦210,000</p>
+        <div class="rating">⭐⭐⭐⭐☆</div>
+        <div class="actions">
+          <button onclick="addToCart('Canon EOS 4000D', 210000)">Add to Cart</button>
+          <button onclick="buyNow('Canon EOS 4000D', 210000)">Buy Now</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="images/powerbank.jpg" alt="Power Bank" />
+        <h3>Romoss Sense 8+</h3>
+        <p class="price">₦18,000</p>
+        <div class="rating">⭐⭐⭐⭐</div>
+        <div class="actions">
+          <button onclick="addToCart('Romoss Sense 8+', 18000)">Add to Cart</button>
+          <button onclick="buyNow('Romoss Sense 8+', 18000)">Buy Now</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="images/smartwatch.jpg" alt="Smartwatch" />
+        <h3>Apple Watch SE</h3>
+        <p class="price">₦135,000</p>
+        <div class="rating">⭐⭐⭐⭐☆</div>
+        <div class="actions">
+          <button onclick="addToCart('Apple Watch SE', 135000)">Add to Cart</button>
+          <button onclick="buyNow('Apple Watch SE', 135000)">Buy Now</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="images/router.jpg" alt="WiFi Router" />
+        <h3>TP-Link WiFi Router</h3>
+        <p class="price">₦19,500</p>
+        <div class="rating">⭐⭐⭐⭐</div>
+        <div class="actions">
+          <button onclick="addToCart('TP-Link WiFi Router', 19500)">Add to Cart</button>
+          <button onclick="buyNow('TP-Link WiFi Router', 19500)">Buy Now</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="images/printer.jpg" alt="Printer" />
+        <h3>HP LaserJet MFP 137fnw</h3>
+        <p class="price">₦115,000</p>
+        <div class="rating">⭐⭐⭐⭐⭐</div>
+        <div class="actions">
+          <button onclick="addToCart('HP LaserJet 137fnw', 115000)">Add to Cart</button>
+          <button onclick="buyNow('HP LaserJet 137fnw', 115000)">Buy Now</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <script>
+    function addToCart(name, price) {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cart.push({ name, price });
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert(name + " added to cart!");
+    }
+
+    function buyNow(name, price) {
+      localStorage.setItem('checkout', JSON.stringify({ name, price }));
+      window.location.href = 'checkout.html';
+    }
+  </script>
+</body>
+</html>

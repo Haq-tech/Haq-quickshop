@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Categories | QuickShop Mega</title>
+  <link rel="manifest" href="manifest.json" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f3f4f6;
+    }
+
+    header {
+      background: #111;
+      color: white;
+      padding: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    nav a.active {
+      color: yellow;
+    }
+
+    .container {
+      padding: 20px;
+    }
+
+    h2 {
+      margin-bottom: 15px;
+      color: #222;
+    }
+
+    .highlight {
+      background: #ff1744;
+      color: white;
+      padding: 18px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      font-size: 1.1em;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .highlight a {
+      color: #fff700;
+      text-decoration: underline;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: linear-gradient(to top right, #0084ff, #00c6ff);
+      color: white;
+      padding: 30px 20px;
+      border-radius: 12px;
+      text-align: center;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    footer {
+      background: #111;
+      color: white;
+      padding: 15px;
+      text-align: center;
+      font-size: 0.9em;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>QuickShop Mega</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="product.html">Products</a>
+      <a href="categories.html" class="active">Categories</a>
+      <a href="profile.html">Profile</a>
+      <a href="about.html">About</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h2>🛒 Browse All Categories</h2>
+
+    <div id="hottest-deal" class="highlight" style="display: none;">
+      🔥 <span id="deal-text"></span> —
+      <a href="categories.html">See all categories</a>
+    </div>
+
+    <div class="grid">
+      <a href="electronics.html" class="card">Electronics</a>
+      <a href="books.html" class="card">Books</a>
+      <a href="fashion.html" class="card">Fashion</a>
+      <a href="design.html" class="card">Design</a>
+      <a href="groceries.html" class="card">Groceries</a>
+      <a href="home-appliances.html" class="card">Home Appliances</a>
+      <a href="gaming.html" class="card">Gaming</a>
+      <a href="health.html" class="card">Health</a>
+      <a href="furniture.html" class="card">Furniture</a>
+      <a href="toys.html" class="card">Toys</a>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 QuickShop Mega. All rights reserved. <br />
+    Contact: abdulhaqabdulganiy@gmail.com
+  </footer>
+
+  <script>
+    // Simulated hottest deal of the day
+    const hottestDeal = "50% off on Gaming Consoles in the Gaming category!";
+
+    window.addEventListener("DOMContentLoaded", () => {
+      const dealBox = document.getElementById("hottest-deal");
+      const dealText = document.getElementById("deal-text");
+
+      dealText.textContent = hottestDeal;
+      dealBox.style.display = "block";
+    });
+  </script>
+</body>
+</html>

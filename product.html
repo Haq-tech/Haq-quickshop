@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>QuickShop Mega | Home</title>
+  <link rel="manifest" href="manifest.json" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f8f9fa;
+      color: #222;
+    }
+
+    header {
+      background: #111;
+      color: white;
+      padding: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    nav a.active {
+      color: yellow;
+    }
+
+    .hero {
+      background: linear-gradient(to right, #ff416c, #ff4b2b);
+      color: white;
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    .hero h2 {
+      margin-bottom: 10px;
+      font-size: 2em;
+    }
+
+    .hero p {
+      font-size: 1.1em;
+      margin-bottom: 30px;
+    }
+
+    .deal-card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      max-width: 500px;
+      margin: 30px auto;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .deal-card img {
+      max-width: 100%;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    .deal-card h3 {
+      margin-bottom: 10px;
+    }
+
+    .deal-card .price {
+      color: #e60023;
+      font-weight: bold;
+      font-size: 1.3em;
+      margin-bottom: 15px;
+    }
+
+    .deal-card button {
+      margin: 5px;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .btn-cart {
+      background: #007bff;
+      color: white;
+    }
+
+    .btn-buy {
+      background: #28a745;
+      color: white;
+    }
+
+    .btn-cart:hover {
+      background: #0056b3;
+    }
+
+    .btn-buy:hover {
+      background: #1e7e34;
+    }
+
+    .link-to-categories {
+      display: block;
+      text-align: center;
+      margin: 40px 0 10px;
+      font-weight: bold;
+    }
+
+    footer {
+      background: #111;
+      color: white;
+      padding: 15px;
+      text-align: center;
+      font-size: 0.9em;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>QuickShop Mega</h1>
+    <nav>
+      <a href="index.html" class="active">Home</a>
+      <a href="product.html">Products</a>
+      <a href="categories.html">Categories</a>
+      <a href="profile.html">Profile</a>
+      <a href="about.html">About</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>🔥 Hottest Deal of the Day</h2>
+    <p>Don't miss out on today's best offer – limited stock available!</p>
+  </section>
+
+  <div class="deal-card">
+    <img src="hotdeal.jpg" alt="Hot Deal Product" />
+    <h3>Wireless Bluetooth Headset</h3>
+    <div class="price">Now: ₦12,500 <small style="text-decoration: line-through; color: gray;">₦19,000</small></div>
+    <button class="btn-cart" onclick="goToCart()">Add to Cart</button>
+    <button class="btn-buy" onclick="goToCheckout()">Buy Now</button>
+  </div>
+
+  <a class="link-to-categories" href="categories.html">👉 Explore All Categories</a>
+
+  <footer>
+    &copy; 2025 QuickShop Mega. All rights reserved. <br />
+    Contact: abdulhaqabdulganiy@gmail.com
+  </footer>
+
+  <script>
+    function goToCart() {
+      window.location.href = 'cart.html';
+    }
+
+    function goToCheckout() {
+      window.location.href = 'checkout.html';
+    }
+  </script>
+
+</body>
+</html>

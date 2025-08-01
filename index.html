@@ -1,0 +1,194 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QuickShop Mega</title>  <!-- PWA Manifest -->  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#4CAF50" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png" />
+  <link rel="icon" href="icons/icon-192.png" />  <!-- Styles -->  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f5f5f5;
+      color: #333;
+    }header {
+  background: #232f3e;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+}
+
+nav a:hover {
+  background: #4CAF50;
+}
+
+.hero {
+  text-align: center;
+  padding: 2rem 1rem;
+  background: #e2fbe2;
+}
+
+.deals {
+  padding: 1rem;
+  background: #fff;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.product-card {
+  background: #fafafa;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  padding: 1rem;
+  text-align: center;
+}
+
+.product-card img {
+  width: 100%;
+  max-height: 180px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.product-card button {
+  margin: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.product-card button:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.reviews {
+  padding: 1rem;
+  background: #f9f9f9;
+}
+
+.review {
+  margin-bottom: 1rem;
+  background: #fff;
+  padding: 1rem;
+  border-left: 5px solid #4CAF50;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: #232f3e;
+  color: white;
+  font-size: 0.9rem;
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🛍️ QuickShop Mega</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="cart.html">Cart</a>
+      <a href="profile.html">Profile</a>
+      <a href="about.html">About</a>
+    </nav>
+  </header>  <main>
+    <section class="hero">
+      <h2>Welcome to QuickShop Mega</h2>
+      <p>Shop fast, easy and secure – everything you need is here.</p>
+    </section><section class="deals">
+  <h3>🔥 Hot Deals</h3>
+  <div class="products">
+    <div class="product-card">
+      <img src="images/headphones.jpg" alt="Wireless Headphones" />
+      <h4>Wireless Headphones</h4>
+      <p>₦12,500</p>
+      <button onclick="addToCart('Wireless Headphones', 12500)">Add to Cart</button>
+      <button onclick="buyNow('Wireless Headphones', 12500)">Buy Now</button>
+    </div>
+    <div class="product-card">
+      <img src="images/smartwatch.jpg" alt="Smartwatch" />
+      <h4>Smartwatch</h4>
+      <p>₦18,000</p>
+      <button onclick="addToCart('Smartwatch', 18000)">Add to Cart</button>
+      <button onclick="buyNow('Smartwatch', 18000)">Buy Now</button>
+    </div>
+  </div>
+</section>
+
+<section class="reviews">
+  <h3>💬 What Our Customers Say</h3>
+  <div class="review">
+    <p>"QuickShop changed my life! I ordered and got it same day. 🔥"</p>
+    <strong>- Seyi D.</strong>
+  </div>
+  <div class="review">
+    <p>"Customer support is top notch. Smooth experience from start to end."</p>
+    <strong>- Amaka T.</strong>
+  </div>
+  <div class="review">
+    <p>"Best online shop in Nigeria right now. Period."</p>
+    <strong>- Idris J.</strong>
+  </div>
+</section>
+
+  </main>  <footer>
+    <p>© 2025 QuickShop Mega. All rights reserved.</p>
+    <p>Contact: <a href="mailto:abdulhaqabdulganiy@gmail.com">abdulhaqabdulganiy@gmail.com</a></p>
+  </footer>  <script>
+    function addToCart(product, price) {
+      const cartItem = { product, price };
+      localStorage.setItem('cartItem', JSON.stringify(cartItem));
+      window.location.href = 'cart.html';
+    }
+
+    function buyNow(product, price) {
+      const checkoutItem = { product, price };
+      localStorage.setItem('checkoutItem', JSON.stringify(checkoutItem));
+      window.location.href = 'checkout.html';
+    }
+  </script>  <script src="js/script.js"></script>  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js')
+        .then(reg => console.log('✅ Service Worker Registered', reg))
+        .catch(err => console.error('Service Worker Error', err));
+    }
+  </script></body>
+</html>

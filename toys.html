@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Toys - HAQ Store</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="icon.png" type="image/png">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #fefefe;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #3e3eff;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    nav {
+      background: #eeeeff;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 0.5rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #3e3eff;
+      font-weight: bold;
+    }
+
+    .category-section {
+      padding: 20px;
+    }
+
+    .category-title {
+      font-size: 24px;
+      color: #333;
+      margin-bottom: 1rem;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .product-card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .product-card img {
+      max-width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .price {
+      color: #2e8b57;
+      font-weight: bold;
+      margin: 0.5rem 0;
+    }
+
+    .rating {
+      font-size: 16px;
+      margin-bottom: 0.5rem;
+    }
+
+    .actions button {
+      margin: 5px;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      color: white;
+      background-color: #3e3eff;
+      cursor: pointer;
+    }
+
+    .actions button:hover {
+      background-color: #0000cc;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 14px;
+      padding: 1rem;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>HAQ Store</h1>
+    <p>Your Toy Heaven 🎁</p>
+  </header>
+
+  <nav>
+    <a href="index.html">🏠 Home</a>
+    <a href="products.html">🛍️ Products</a>
+    <a href="profile.html">👤 Profile</a>
+  </nav>
+
+  <section id="toys" class="category-section">
+    <h2 class="category-title">🧸 Toys</h2>
+    <div class="products-grid">
+
+      <div class="product-card">
+        <img src="images/teddy.jpg" alt="Teddy Bear" />
+        <h3>Fluffy Teddy Bear</h3>
+        <p class="price">₦4,500</p>
+        <div class="rating">⭐⭐⭐⭐☆</div>
+        <div class="actions">
+          <button onclick="addToCart('Fluffy Teddy Bear', 4500)">Add to Cart</button>
+          <button onclick="buyNow('Fluffy Teddy Bear', 4500)">Buy Now</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="images/lego.jpg" alt="LEGO Set" />
+        <h3>LEGO City Kit</h3>
+        <p class="price">₦17,000</p>
+        <div class="rating">⭐⭐⭐⭐⭐</div>
+        <div class="actions">
+          <button onclick="addToCart('LEGO City Kit', 17000)">Add to Cart</button>
+          <button onclick="buyNow('LEGO City Kit', 17000)">Buy Now</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="images/racingcar.jpg" alt="Racing Car" />
+        <h3>Remote Control Racing Car</h3>
+        <p class="price">₦11,500</p>
+        <div class="rating">⭐⭐⭐⭐☆</div>
+        <div class="actions">
+          <button onclick="addToCart('Remote Control Racing Car', 11500)">Add to Cart</button>
+          <button onclick="buyNow('Remote Control Racing Car', 11500)">Buy Now</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 HAQ Store. All rights reserved.
+  </footer>
+
+  <script>
+    function addToCart(name, price) {
+      alert(name + " added to cart for ₦" + price);
+    }
+
+    function buyNow(name, price) {
+      alert("Buying " + name + " for ₦" + price);
+    }
+
+    // Register PWA service worker
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js')
+        .then(reg => console.log("Service Worker Registered", reg))
+        .catch(err => console.error("SW registration failed", err));
+    }
+  </script>
+</body>
+</html>
