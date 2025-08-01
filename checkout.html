@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Checkout - HAQ Market</title>
+  <link rel="manifest" href="manifest.json" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
+      padding: 20px;
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .summary {
+      background: #fff;
+      padding: 15px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    input[type="file"] {
+      background: #fff;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 12px 20px;
+      width: 100%;
+      background-color: #4CAF50;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <h1>🛒 Checkout</h1>
+
+  <div class="summary" id="checkout-summary">
+    Loading cart summary...
+  </div>
+
+  <div class="summary" style="background: #fffbe7; border-left: 6px solid #ffcc00;">
+    <h3>💳 Make Payment To:</h3>
+    <p><strong>Account Number:</strong> 9137109134</p>
+    <p><strong>Bank:</strong> Opay</p>
+    <p><strong>Account Name:</strong> Azeemah Dolapo Abdul Ganiy</p>
+    <p style="color: red;"><strong>Note:</strong> Please make payment before confirming your order.</p>
+  </div>
+
+  <form id="checkout-form">
+    <label for="name">Full Name:</label>
+    <input type="text" id="name" required placeholder="Enter your full name" />
+
+    <label for="address">Full Address:</label>
+    <input type="text" id="address" required placeholder="Enter your delivery address" />
+
+    <label for="country">Country:</label>
+    <input type="text" id="country" required placeholder="e.g. Nigeria" />
+
+    <label for="state">State:</label>
+    <input type="text" id="state" required placeholder="e.g. Kwara" />
+
+    <label for="lga">Local Government Area:</label>
+    <input type="text" id="lga" required placeholder="e.g. Ilorin South" />
+
+    <label for="phone">Sender Phone Number:</label>
+    <input type="tel" id="phone" required placeholder="e.g. 08012345678" />
+
+    <label for="receipt">Upload Payment Receipt:</label>
+    <input type="file" id="receipt" accept="image/*" required />
+
+    <button type="submit">Confirm Order</button>
+  </form>
+
+  <script>
+    const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+
+    function loadSummary() {
+      const summary = document.getElementById("checkout-summary");
+      if (cartItems.length === 0) {
+        summary.innerHTML = "<p>No items in cart. Go back and add some!</p>";
+        return;
+      }
+
+      let html = "<h2>Cart Summary:</h2><ul>";
+      let total = 0;
+      cartItems.forEach(item => {
+        html += `<li>${item.name} - ₦${item.price.toLocaleString()}</li>`;
+        total += item.price;
+      });
+      html += `</ul><p><strong>Total:</strong> ₦${total.toLocaleString()}</p>`;
+      summary.innerHTML = html;
+    }
+
+    loadSummary();
+
+    document.getElementById("checkout-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const order = {
+        name: document.getElementById("name").value,
+        address: document.getElementById("address").value,
+        country: document.getElementById("country").value,
+        state: document.getElementById("state").value,
+        lga: document.getElementById("lga").value,
+        phone: document.getElementById("phone").value,
+        receipt: document.getElementById("receipt").files[0]?.name || "No file",
+        items: cartItems
+      };
+
+      localStorage.setItem("order", JSON.stringify(order));
+      alert("✅ Order confirmed! We will contact you shortly.");
+      window.location.href = "index.html";
+    });
+  </script>
+</body>
+</html>
